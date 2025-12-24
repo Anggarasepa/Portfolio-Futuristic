@@ -141,7 +141,7 @@ const Contact = () => {
     {
       icon: <SiDiscord />,
       title: "Discord",
-      info: "asgardisme", // GANTI USERNAME DISCORD
+      info: "@asgardisme", // GANTI USERNAME DISCORD
       color: "#5865F2"
     }
   ];
@@ -151,38 +151,38 @@ const Contact = () => {
   const socialLinks = [
     { 
       icon: <FaGithub />, 
-      link: "https://github.com/asepanggara", // GANTI
+      link: "https://github.com/Anggarasepa", // GANTI
       label: "GitHub",
       color: "#333"
     },
     { 
       icon: <FaLinkedin />, 
-      link: "https://linkedin.com/in/asepanggara", // GANTI
+      link: "https://www.linkedin.com/in/asep-anggara-ab5610112/", // GANTI
       label: "LinkedIn",
       color: "#0077B5"
     },
     { 
       icon: <FaInstagram />, 
-      link: "https://instagram.com/asepanggara", // GANTI
+      link: "https://www.instagram.com/anggarasepa/", // GANTI
       label: "Instagram",
       color: "#E4405F"
     },
     { 
       icon: <FaTwitter />, 
-      link: "https://twitter.com/asepanggara", // GANTI
+      link: "https://x.com/anggarasepa", // GANTI
       label: "Twitter",
       color: "#1DA1F2"
     },
     // Tambahkan media sosial lain jika perlu
     { 
       icon: <FaYoutube />, 
-      link: "https://youtube.com/@asepanggara", // OPSIONAL
+      link: "https://www.youtube.com/@anggarasepa", // OPSIONAL
       label: "YouTube",
       color: "#FF0000"
     },
     { 
       icon: <SiTiktok />, 
-      link: "https://tiktok.com/@asepanggara", // OPSIONAL
+      link: "https://www.tiktok.com/@anggarasepa", // OPSIONAL
       label: "TikTok",
       color: "#000000"
     }

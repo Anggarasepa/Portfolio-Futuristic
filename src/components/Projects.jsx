@@ -15,7 +15,7 @@ const Projects = () => {
       tags: ["Python", "Machine Learning", "AI"],
       icon: <FaPython />,
       gradient: "linear-gradient(135deg, #00f3ff, #7b00ff)",
-      link: "https://gumroad.com/your-product-link", // GANTI: gumroad -> link
+      link: "https://anggarasepa.gumroad.com/l/autogenv16futuresbinance", // GANTI: gumroad -> link
       linkType: "gumroad" // TANDAI INI SEBAGAI GUMROAD
     },
     {
@@ -25,7 +25,7 @@ const Projects = () => {
       tags: ["Kotlin", "Firebase", "Android"],
       icon: <SiKotlin />,
       gradient: "linear-gradient(135deg, #ff00c8, #ff5500)",
-      link: "https://github.com/username/project-mobile", // GANTI: github -> link
+      link: "https://github.com/Anggarasepa/PoinNusamba.git", // GANTI: github -> link
       linkType: "github" // TANDAI INI SEBAGAI GITHUB
     },
     {
@@ -35,7 +35,7 @@ const Projects = () => {
       tags: ["Node.Js", "React", "CSS", "Html"],
       icon: <FaReact />,
       gradient: "linear-gradient(135deg, #00ff88, #0088ff)",
-      link: "https://github.com/username/project-web", // GANTI: github -> link
+      link: "https://github.com/Anggarasepa/Portfolio-Futuristic.git", // GANTI: github -> link
       linkType: "github" // TANDAI INI SEBAGAI GITHUB
     }
   ];
