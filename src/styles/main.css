@@ -284,7 +284,7 @@ h2::after {
 }
 
 /* Responsive Design - Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   .container {
     max-width: 90%;
     padding: 0 15px;
@@ -308,8 +308,18 @@ h2::after {
   }
 }
 
-/* Responsive Design - Mobile */
+/* Responsive Design - Mobile - GABUNGAN DENGAN YANG SUDAH ADA */
 @media (max-width: 768px) {
+  /* Keep existing scroll-top styles */
+  .scroll-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  /* New responsive styles */
   body {
     font-size: 14px;
   }
@@ -323,6 +333,7 @@ h2::after {
     padding: 60px 0;
   }
   
+  /* Ukuran font untuk mobile */
   h1 {
     font-size: 2.8rem;
     line-height: 1.2;
@@ -344,12 +355,62 @@ h2::after {
     font-size: 0.9rem;
   }
   
+  /* Mobile menu/toggle styling */
+  .mobile-menu-btn,
+  .menu-toggle,
+  .hamburger-btn {
+    display: block !important;
+    width: 40px;
+    height: 40px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+  
+  /* Styling untuk menu navigation di mobile */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(10, 10, 26, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 80px 20px 20px;
+    transition: right 0.3s ease;
+    z-index: 999;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-menu .nav-link {
+    padding: 15px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
+  
   /* Button adjustment */
   .btn {
     padding: 12px 30px;
     font-size: 1rem;
+  }
+  
+  /* Tombol primary khusus untuk mobile */
+  .btn-primary.mobile-btn {
     width: 100%;
     justify-content: center;
+    margin: 10px 0;
   }
   
   /* Project cards */
@@ -392,6 +453,57 @@ h2::after {
   .shape-1 { width: 150px; height: 150px; }
   .shape-2 { width: 100px; height: 100px; }
   .shape-3 { width: 180px; height: 180px; }
+  
+  /* Toggle button styling (untuk dark/light mode, dll) */
+  .toggle-btn,
+  .theme-switcher,
+  .mode-toggle {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Social media buttons di mobile */
+  .social-icons,
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .social-btn:hover {
+    background: var(--primary);
+    color: var(--dark);
+    transform: translateY(-3px);
+  }
 }
 
 /* Responsive Design - Small Mobile */
@@ -422,13 +534,31 @@ h2::after {
     gap: 15px !important;
   }
   
-  /* Scroll to top button */
+  /* Scroll to top button - override untuk mobile kecil */
   .scroll-top {
     bottom: 15px;
     right: 15px;
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
+  }
+  
+  /* Menu mobile untuk HP kecil */
+  .mobile-menu-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .nav-menu {
+    width: 85%;
+  }
+  
+  .toggle-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    bottom: 70px;
   }
 }
 
@@ -444,6 +574,16 @@ h2::after {
   
   .project-card {
     height: 200px;
+  }
+  
+  /* Menu mobile landscape */
+  .nav-menu {
+    padding-top: 60px;
+  }
+  
+  .nav-menu .nav-link {
+    padding: 10px;
+    font-size: 0.9rem;
   }
 }
 
@@ -461,6 +601,10 @@ h2::after {
     display: none !important;
   }
   
+  .mobile-show {
+    display: block !important;
+  }
+  
   .mobile-full-width {
     width: 100% !important;
     max-width: 100% !important;
@@ -468,5 +612,51 @@ h2::after {
   
   .mobile-padding {
     padding: 0 10px !important;
+  }
+  
+  /* Flex utility untuk mobile */
+  .mobile-flex-column {
+    flex-direction: column !important;
+  }
+  
+  .mobile-flex-center {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Spacing untuk mobile */
+  .mobile-mt-1 { margin-top: 0.5rem !important; }
+  .mobile-mt-2 { margin-top: 1rem !important; }
+  .mobile-mt-3 { margin-top: 1.5rem !important; }
+  .mobile-mb-1 { margin-bottom: 0.5rem !important; }
+  .mobile-mb-2 { margin-bottom: 1rem !important; }
+  .mobile-mb-3 { margin-bottom: 1.5rem !important; }
+}
+
+/* Pastikan elemen yang perlu disembunyikan di desktop */
+@media (min-width: 769px) {
+  .mobile-menu-btn,
+  .menu-toggle,
+  .mobile-only {
+    display: none !important;
+  }
+  
+  /* Ini penting: Pastikan h1 tetap 4.5rem di desktop */
+  h1 {
+    font-size: 4.5rem !important;
+  }
+  
+  h2 {
+    font-size: 3rem !important;
+  }
+  
+  /* Pastikan container tetap sesuai desktop */
+  .container {
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  section {
+    padding: 100px 0;
   }
 }
