@@ -1,0 +1,199 @@
+/* Keyframes */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(20px, -20px) rotate(5deg); }
+  50% { transform: translate(-15px, 15px) rotate(-5deg); }
+  75% { transform: translate(10px, -10px) rotate(3deg); }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 20px var(--primary); }
+  50% { box-shadow: 0 0 40px var(--primary), 0 0 60px var(--secondary); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes reveal {
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+/* TAMBAHAN: Keyframes untuk CSS Particles Fallback */
+@keyframes float-particle {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translate(100px, -50px) rotate(90deg) scale(1.2);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50px, 100px) rotate(180deg) scale(0.8);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(50px, -100px) rotate(270deg) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg) scale(1);
+    opacity: 0.1;
+  }
+}
+
+@keyframes link-glow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scaleX(0.5);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scaleX(1);
+  }
+}
+
+/* Animations Classes */
+.neon-pulse {
+  animation: neon-pulse 2s infinite;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  animation: scan-line 3s linear infinite;
+  z-index: 100;
+}
+
+.glitch-text {
+  animation: glitch 0.5s infinite;
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  color: var(--accent);
+  animation: glitch 0.3s infinite;
+}
+
+.glitch-text::after {
+  left: -2px;
+  color: var(--primary);
+  animation: glitch 0.5s infinite reverse;
+}
+
+/* Hover Effects */
+.hover-3d {
+  transition: transform 0.5s ease;
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  filter: drop-shadow(0 0 15px var(--primary));
+}
+
+/* Text Reveal */
+.reveal-text {
+  overflow: hidden;
+  position: relative;
+}
+
+.reveal-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark);
+  animation: reveal 1.5s ease-out forwards;
+  transform-origin: left;
+}
+
+/* TAMBAHAN: CSS Particles Classes */
+.css-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle-link {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+  transform-origin: left center;
+  animation: link-glow 3s infinite;
+}
+
+/* Particle Effect - DIUPDATE */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2; /* Diubah dari -1 ke -2 agar di belakang konten tapi di atas background */
+}
+
+/* TAMBAHAN: Loading animation untuk particles */
+@keyframes particles-loading {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.particles-loading {
+  animation: particles-loading 1s ease-out;
+}
+
+/* TAMBAHAN: Floating shapes animation */
+.shape {
+  animation: float 20s infinite linear;
+}
+
+.shape:nth-child(odd) {
+  animation-duration: 25s;
+  animation-direction: reverse;
+}
+
+.shape:nth-child(3n) {
+  animation-duration: 30s;
+}
