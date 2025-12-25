@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaPython, FaRobot } from 'react-icons/fa';
 import { SiKotlin, SiFirebase, SiAndroid, SiGumroad } from 'react-icons/si';
 
 const Projects = () => {
@@ -15,8 +15,8 @@ const Projects = () => {
       tags: ["Python", "Machine Learning", "AI"],
       icon: <FaPython />,
       gradient: "linear-gradient(135deg, #00f3ff, #7b00ff)",
-      link: "https://anggarasepa.gumroad.com/l/autogenv16futuresbinance", // GANTI: gumroad -> link
-      linkType: "gumroad" // TANDAI INI SEBAGAI GUMROAD
+      link: "https://anggarasepa.gumroad.com/l/autogenv16futuresbinance",
+      linkType: "gumroad"
     },
     {
       id: 2,
@@ -25,8 +25,8 @@ const Projects = () => {
       tags: ["Kotlin", "Firebase", "Android"],
       icon: <SiKotlin />,
       gradient: "linear-gradient(135deg, #ff00c8, #ff5500)",
-      link: "https://github.com/Anggarasepa/PoinNusamba.git", // GANTI: github -> link
-      linkType: "github" // TANDAI INI SEBAGAI GITHUB
+      link: "https://github.com/Anggarasepa/PoinNusamba.git",
+      linkType: "github"
     },
     {
       id: 3,
@@ -35,8 +35,18 @@ const Projects = () => {
       tags: ["Node.Js", "React", "CSS", "Html"],
       icon: <FaReact />,
       gradient: "linear-gradient(135deg, #00ff88, #0088ff)",
-      link: "https://github.com/Anggarasepa/Portfolio-Futuristic.git", // GANTI: github -> link
-      linkType: "github" // TANDAI INI SEBAGAI GITHUB
+      link: "https://github.com/Anggarasepa/Portfolio-Futuristic.git",
+      linkType: "github"
+    },
+    {
+      id: 4,
+      title: "Workflow Automation",
+      description: "Biarkan tugas rutin Anda diotomatisasi untuk efisiensi maksimal",
+      tags: ["N8N", "JSON", "API", "AI"],
+      icon: <FaRobot />,
+      gradient: "linear-gradient(135deg, #FF6B35, #FFA500)",
+      link: "https://github.com/Anggarasepa/Workflow_Automation.git",
+      linkType: "github"
     }
   ];
 
@@ -318,8 +328,8 @@ const Projects = () => {
                   style={{
                     padding: '10px 20px',
                     background: project.linkType === "gumroad" 
-                      ? 'linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.4))' // Orange untuk Gumroad
-                      : 'rgba(255, 255, 255, 0.1)', // Default untuk GitHub
+                      ? 'linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.4))'
+                      : 'rgba(255, 255, 255, 0.1)',
                     border: project.linkType === "gumroad" 
                       ? '1px solid rgba(255, 107, 53, 0.5)' 
                       : '1px solid rgba(255, 255, 255, 0.2)',
