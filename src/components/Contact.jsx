@@ -5,13 +5,9 @@ import {
   FaEnvelope, 
   FaPhone, 
   FaMapMarkerAlt,
-  FaLinkedin,
-  FaGithub,
-  FaTwitter,
-  FaInstagram,
-  FaYoutube
+  FaGithub
 } from 'react-icons/fa';
-import { SiDiscord, SiTiktok } from 'react-icons/si';
+import { SiDiscord, SiUpwork, SiGumroad } from 'react-icons/si';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,10 +49,6 @@ const Contact = () => {
     setFormError('');
     
     try {
-      // === OPSI 1: Menggunakan EmailJS (RECOMMENDED) ===
-      // Jika Anda menggunakan EmailJS, aktifkan kode di bawah
-      // await sendEmailWithEmailJS(formData);
-      
       // === OPSI 2: Menggunakan mailto link (Simple) ===
       sendEmailWithMailTo(formData);
       
@@ -79,28 +71,6 @@ const Contact = () => {
     }
   };
 
-  // ========== OPSI 1: EMAILJS (Setup Required) ==========
-  /*
-  const sendEmailWithEmailJS = async (data) => {
-    // Install: npm install emailjs-com
-    // Daftar di: https://www.emailjs.com/
-    
-    const emailjs = await import('emailjs-com');
-    
-    const serviceID = 'YOUR_SERVICE_ID'; // Dapatkan dari EmailJS
-    const templateID = 'YOUR_TEMPLATE_ID'; // Dapatkan dari EmailJS
-    const userID = 'YOUR_USER_ID'; // Dapatkan dari EmailJS
-    
-    return emailjs.send(serviceID, templateID, {
-      from_name: data.name,
-      from_email: data.email,
-      subject: data.subject,
-      message: data.message,
-      to_email: 'asepanggara@gmail.com' // Email Anda
-    }, userID);
-  };
-  */
-
   // ========== OPSI 2: MAILTO LINK (Simple - No Backend) ==========
   const sendEmailWithMailTo = (data) => {
     const recipient = 'asepanggara@gmail.com'; // GANTI DENGAN EMAIL ANDA
@@ -116,75 +86,57 @@ const Contact = () => {
   };
 
   // ========== DATA CONTACT & SOCIAL ==========
-  // GANTI DENGAN INFORMASI ANDA
   const contactInfo = [
     {
       icon: <FaEnvelope />,
       title: "Email",
-      info: "asepanggara@gmail.com", // GANTI EMAIL ANDA
+      info: "asepanggara@gmail.com",
       color: "#00f3ff",
-      link: "mailto:asepanggara@gmail.com" // Link untuk email
+      link: "mailto:asepanggara@gmail.com"
     },
     {
       icon: <FaPhone />,
       title: "Phone",
-      info: "+62 857 8118 9228", // GANTI NOMOR ANDA
+      info: "+62 857 8118 9228",
       color: "#7b00ff",
-      link: "https://wa.me/6285781189228" // Link WhatsApp
+      link: "https://wa.me/6285781189228"
     },
     {
       icon: <FaMapMarkerAlt />,
       title: "Location",
-      info: "Bandung, Indonesia", // GANTI LOKASI ANDA
-      color: "#ff00c8"
+      info: "Bandung, Indonesia",
+      color: "#ff00c8",
+      link: "https://www.google.com/maps/place/Bandung,+Kota+Bandung,+Jawa+Barat" // Link Google Maps
     },
     {
       icon: <SiDiscord />,
       title: "Discord",
-      info: "@asgardisme", // GANTI USERNAME DISCORD
-      color: "#5865F2"
+      info: "asepanggara",
+      color: "#5865F2",
+      link: "https://discord.com/users/asepanggara" // Link Discord
     }
   ];
 
   // ========== SOCIAL MEDIA LINKS ==========
-  // GANTI "#" DENGAN LINK MEDIA SOSIAL ANDA
+  // Hanya GitHub, Upwork, Gumroad
   const socialLinks = [
     { 
       icon: <FaGithub />, 
-      link: "https://github.com/Anggarasepa", // GANTI
+      link: "https://github.com/Anggarasepa",
       label: "GitHub",
       color: "#333"
     },
     { 
-      icon: <FaLinkedin />, 
-      link: "https://www.linkedin.com/in/asep-anggara-ab5610112/", // GANTI
-      label: "LinkedIn",
-      color: "#0077B5"
+      icon: <SiUpwork />, 
+      link: "https://www.upwork.com/freelancers/~01641a3c8f1e6a9a4f?mp_source=share", // GANTI DENGAN LINK UPWORK ANDA
+      label: "Upwork",
+      color: "#14A800"
     },
     { 
-      icon: <FaInstagram />, 
-      link: "https://www.instagram.com/anggarasepa/", // GANTI
-      label: "Instagram",
-      color: "#E4405F"
-    },
-    { 
-      icon: <FaTwitter />, 
-      link: "https://x.com/anggarasepa", // GANTI
-      label: "Twitter",
-      color: "#1DA1F2"
-    },
-    // Tambahkan media sosial lain jika perlu
-    { 
-      icon: <FaYoutube />, 
-      link: "https://www.youtube.com/@anggarasepa", // OPSIONAL
-      label: "YouTube",
-      color: "#FF0000"
-    },
-    { 
-      icon: <SiTiktok />, 
-      link: "https://www.tiktok.com/@anggarasepa", // OPSIONAL
-      label: "TikTok",
-      color: "#000000"
+      icon: <SiGumroad />, 
+      link: "https://anggarasepa.gumroad.com/", // GANTI DENGAN LINK GUMROAD ANDA
+      label: "Gumroad",
+      color: "#36A9AE"
     }
   ];
 
@@ -206,7 +158,7 @@ const Contact = () => {
             opacity: 0.8, 
             maxWidth: '600px', 
             margin: '0 auto',
-            fontFamily: "'Orbitron', 'Arial', sans-serif", // Font sama
+            fontFamily: "'Orbitron', 'Arial', sans-serif",
             letterSpacing: '1px'
           }}>
             Mari berkolaborasi menciptakan sesuatu yang luar biasa
@@ -288,7 +240,7 @@ const Contact = () => {
                             fontSize: '0.8rem',
                             opacity: 0.7
                           }}>
-                            (click to contact)
+                            (click to {item.title === 'Location' ? 'view on map' : 'contact'})
                           </span>
                         )}
                       </div>
@@ -298,7 +250,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Social Links - DIUPDATE DENGAN LINK */}
+            {/* Social Links - Hanya GitHub, Upwork, Gumroad */}
             <div>
               <h4 style={{ fontSize: '1.5rem', marginBottom: '20px', color: 'var(--light)' }}>
                 Connect With Me
