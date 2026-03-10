@@ -8,89 +8,47 @@ const Header = () => {
 
   const navItems = [
     { id: 'home', label: 'Home' },
+    { id: 'skills', label: 'Skills' }, // Sekarang punya ID sendiri
     { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];
 
-  // === FUNGSI SMOOTH SCROLL YANG DIPERBAIKI ===
+  // === FUNGSI NAVIGASI OTOMATIS (LEBIH CERDAS) ===
   const scrollToSection = (id) => {
     setIsOpen(false);
+    setActiveLink(id);
     
+    // 1. Khusus Home, balik ke paling atas
     if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    
+    // 2. Untuk ID lainnya (skills, projects, contact, about)
+    // Kita cari elemen berdasarkan ID-nya langsung
+    const section = document.getElementById(id);
+    
+    if (section) {
+      const headerHeight = 80; // Tinggi header agar judul tidak tertutup
+      const sectionTop = section.offsetTop - headerHeight;
+      
       window.scrollTo({
-        top: 0,
+        top: sectionTop,
         behavior: 'smooth'
       });
-      setActiveLink('home');
-      return;
-    }
-    
-    if (id === 'contact') {
-      const section = document.getElementById('contact');
-      if (section) {
-        const headerHeight = 80;
-        const sectionTop = section.offsetTop - headerHeight;
-        window.scrollTo({ top: sectionTop, behavior: 'smooth' });
-        setActiveLink('contact');
-      }
-      return;
-    }
-    
-    // ========== PERUBAHAN DISINI ==========
-    if (id === 'projects') {
-      // Projects -> Scroll ke tombol "View All Projects"
-      const projectsSection = document.getElementById('projects');
-      if (projectsSection) {
-        const viewAllButton = projectsSection.querySelector('.projects-grid');
-        if (viewAllButton) {
-          const headerHeight = 80;
-          const buttonPosition = viewAllButton.getBoundingClientRect().top;
-          const offsetPosition = buttonPosition + window.pageYOffset - headerHeight - 100;
-          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
-      }
-      setActiveLink('projects');
-      return;
-    }
-    
-    if (id === 'skills') {
-      // Skills -> Scroll ke section "projects" (bukan tombol)
-      const projectsSection = document.getElementById('projects');
-      if (projectsSection) {
-        const headerHeight = 80;
-        const sectionTop = projectsSection.offsetTop - headerHeight;
-        window.scrollTo({ top: sectionTop, behavior: 'smooth' });
-      }
-      setActiveLink('skills');
-      return;
-    }
-    
-    if (id === 'about') {
-      // About -> Scroll ke tombol "Lihat Projek" di Hero
-      const heroSection = document.querySelector('.hero');
+    } else if (id === 'about') {
+      // Fallback khusus About jika tidak ada ID #about (scroll ke Hero)
+      const heroSection = document.querySelector('.hero-section');
       if (heroSection) {
-        const lihatProjekButton = heroSection.querySelector('.btn-primary');
-        if (lihatProjekButton) {
-          const headerHeight = 80;
-          const buttonPosition = lihatProjekButton.getBoundingClientRect().top;
-          const offsetPosition = buttonPosition + window.pageYOffset - headerHeight - 50;
-          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
+        window.scrollTo({ top: heroSection.offsetTop - 80, behavior: 'smooth' });
       }
-      setActiveLink('about');
-      return;
     }
-    // ========== END PERUBAHAN ==========
   };
 
   const scrollToHome = () => {
     setIsOpen(false);
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setActiveLink('home');
   };
 
@@ -113,20 +71,15 @@ const Header = () => {
           justifyContent: 'space-between',
           alignItems: 'center'
         }}>
-          {/* Logo */}
+          {/* Logo dengan Foto Profil */}
           <motion.div 
             className="logo"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={scrollToHome}
             style={{ cursor: 'pointer' }}
           >
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '15px'
-            }}>
-              {/* Foto profil */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
               <div style={{
                 width: '45px',
                 height: '45px',
@@ -138,11 +91,7 @@ const Header = () => {
                 <img 
                   src="/profile.png"
                   alt="Asep Anggara"
-                  style={{
-                    width: '100%',
-                    height: '130%',
-                    objectFit: 'cover'
-                  }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
               
@@ -150,8 +99,9 @@ const Header = () => {
                 background: 'linear-gradient(90deg, var(--primary), var(--accent))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                fontSize: '1.6rem',
-                fontWeight: 'bold'
+                fontSize: '1.4rem',
+                fontWeight: 'bold',
+                fontFamily: "'Orbitron', sans-serif"
               }}>
                 ASEP ANGGARA
               </span>
@@ -160,21 +110,9 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="desktop-nav" style={{ marginLeft: 'auto', marginRight: '30px' }}>
-            <ul style={{
-              display: 'flex',
-              listStyle: 'none',
-              gap: '30px',
-              alignItems: 'center',
-              margin: 0,
-              padding: 0
-            }}>
+            <ul style={{ display: 'flex', listStyle: 'none', gap: '25px', alignItems: 'center', margin: 0, padding: 0 }}>
               {navItems.map((item) => (
-                <motion.li
-                  key={item.id}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{ listStyle: 'none' }}
-                >
+                <motion.li key={item.id} whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
                   <a
                     href={`#${item.id}`}
                     className={`nav-link ${activeLink === item.id ? 'active' : ''}`}
@@ -185,11 +123,12 @@ const Header = () => {
                     style={{
                       color: activeLink === item.id ? 'var(--primary)' : 'var(--light)',
                       textDecoration: 'none',
-                      fontWeight: '500',
-                      fontSize: '1.1rem',
+                      fontWeight: '600',
+                      fontSize: '1rem',
                       position: 'relative',
-                      padding: '10px 0',
-                      cursor: 'pointer'
+                      padding: '8px 0',
+                      cursor: 'pointer',
+                      transition: 'color 0.3s'
                     }}
                   >
                     {item.label}
@@ -197,11 +136,7 @@ const Header = () => {
                       <motion.div
                         layoutId="underline"
                         style={{
-                          position: 'absolute',
-                          bottom: 0,
-                          left: 0,
-                          width: '100%',
-                          height: '2px',
+                          position: 'absolute', bottom: 0, left: 0, width: '100%', height: '2px',
                           background: 'linear-gradient(90deg, var(--primary), var(--accent))',
                           borderRadius: '2px'
                         }}
@@ -213,152 +148,49 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Icon </> sebagai Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle */}
           <motion.div
             whileHover={{ rotate: 180 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
             style={{
-              width: '50px',
-              height: '50px',
-              borderRadius: '50%',
-              background: isOpen 
-                ? 'linear-gradient(135deg, var(--primary), var(--accent))' 
-                : 'rgba(0, 243, 255, 0.1)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              border: isOpen 
-                ? '1px solid var(--primary)' 
-                : '1px solid rgba(0, 243, 255, 0.3)',
-              position: 'relative',
-              zIndex: 1001,
-              transition: 'all 0.3s',
-              boxShadow: isOpen ? '0 0 20px var(--primary)' : 'none'
+              width: '45px', height: '45px', borderRadius: '50%',
+              background: isOpen ? 'var(--primary)' : 'rgba(0, 243, 255, 0.1)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer', border: '1px solid var(--primary)',
+              zIndex: 1001, transition: 'all 0.3s'
             }}
           >
-            {isOpen ? (
-              <FaTimes style={{ 
-                color: 'white', 
-                fontSize: '1.3rem',
-                transition: 'all 0.3s'
-              }} />
-            ) : (
-              <FaCode style={{ 
-                color: 'var(--primary)', 
-                fontSize: '1.5rem',
-                transition: 'all 0.3s'
-              }} />
-            )}
+            {isOpen ? <FaTimes color="white" /> : <FaCode color="var(--primary)" />}
           </motion.div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         <motion.div
-          initial={{ opacity: 0, y: -20, scale: 0.95 }}
-          animate={isOpen ? { 
-            opacity: 1, 
-            y: 0, 
-            scale: 1,
-            display: 'block'
-          } : { 
-            opacity: 0, 
-            y: -20, 
-            scale: 0.95,
-            transitionEnd: { display: 'none' }
-          }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="mobile-menu"
+          initial={{ opacity: 0, y: -20 }}
+          animate={isOpen ? { opacity: 1, y: 0, display: 'block' } : { opacity: 0, y: -20, transitionEnd: { display: 'none' } }}
+          className="mobile-menu glass"
           style={{
-            position: 'absolute',
-            top: 'calc(100% + 15px)',
-            right: '0',
-            background: 'rgba(10, 10, 26, 0.98)',
-            borderRadius: '20px',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
-            zIndex: 1000,
-            minWidth: '250px',
-            overflow: 'hidden',
-            display: 'none'
+            position: 'absolute', top: '90px', right: '20px', minWidth: '200px',
+            borderRadius: '15px', border: '1px solid rgba(255, 255, 255, 0.1)',
+            overflow: 'hidden', padding: '10px'
           }}
         >
-          <div style={{ padding: '10px 0' }}>
-            {navItems.map((item) => (
-              <motion.div
-                key={item.id}
-                whileTap={{ scale: 0.98 }}
-                style={{ margin: '5px 15px' }}
-              >
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.id);
-                  }}
-                  style={{
-                    color: activeLink === item.id ? 'var(--primary)' : 'var(--light)',
-                    textDecoration: 'none',
-                    fontSize: '1.1rem',
-                    display: 'block',
-                    padding: '15px 20px',
-                    borderRadius: '12px',
-                    background: activeLink === item.id 
-                      ? 'linear-gradient(90deg, rgba(0, 243, 255, 0.15), rgba(123, 0, 255, 0.15))' 
-                      : 'transparent',
-                    transition: 'all 0.3s',
-                    cursor: 'pointer',
-                    border: activeLink === item.id 
-                      ? '1px solid rgba(0, 243, 255, 0.3)' 
-                      : '1px solid transparent',
-                    alignItems: 'center',
-                    gap: '15px'
-                  }}
-                >
-                  <div style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: activeLink === item.id 
-                      ? 'var(--primary)' 
-                      : 'rgba(255, 255, 255, 0.3)',
-                    boxShadow: activeLink === item.id ? '0 0 10px var(--primary)' : 'none'
-                  }}></div>
-                  
-                  <span style={{
-                    fontWeight: activeLink === item.id ? '600' : '400',
-                    flex: 1
-                  }}>
-                    {item.label}
-                  </span>
-                  
-                  <motion.div
-                    animate={activeLink === item.id ? { x: 5 } : { x: 0 }}
-                    style={{ fontSize: '0.9rem', opacity: 0.7 }}
-                  >
-                    →
-                  </motion.div>
-                </a>
-              </motion.div>
-            ))}
-            
-            <div style={{
-              height: '1px',
-              background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-              margin: '15px 20px'
-            }}></div>
-            
-            <div style={{ padding: '15px 20px', textAlign: 'center' }}>
-              <div style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.5)', marginBottom: '5px' }}>
-                Navigate to section
-              </div>
-              <div style={{ fontSize: '0.7rem', color: 'rgba(255, 255, 255, 0.3)' }}>
-                Click to scroll smoothly
-              </div>
-            </div>
-          </div>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }}
+              style={{
+                display: 'block', padding: '12px 20px', textDecoration: 'none',
+                color: activeLink === item.id ? 'var(--primary)' : 'white',
+                background: activeLink === item.id ? 'rgba(0, 243, 255, 0.1)' : 'transparent',
+                borderRadius: '10px', transition: '0.3s'
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
         </motion.div>
       </div>
     </motion.header>
