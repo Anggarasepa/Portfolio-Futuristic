@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FaRocket, FaCode, FaLightbulb, FaUserAstronaut } from 'react-icons/fa';
 
@@ -63,6 +62,7 @@ const About = () => {
                 alt="Asep Anggara" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
+              <FaUserAstronaut style={{ position: 'absolute', top: '10px', right: '10px', color: 'var(--primary)', fontSize: '2rem' }} />
             </div>
           </motion.div>
 
