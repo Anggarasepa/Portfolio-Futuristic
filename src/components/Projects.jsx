@@ -189,7 +189,7 @@ const Projects = () => {
               fontFamily: "'Orbitron', sans-serif",
               letterSpacing: '1px'
             }}>
-              Teknologi dan bahasa pemrograman yang saya gunakan untuk membangun masa depan
+              Independently designed, developed, and launched from concept to deployment
             </p>
           </motion.div>
 
@@ -255,7 +255,7 @@ const Projects = () => {
               margin: '0 auto',
               fontFamily: "'Orbitron', sans-serif"
             }}>
-              Eksplorasi solusi digital melalui berbagai platform dan disiplin ilmu
+              Demonstrating complete full-stack engineering from the first line of code to the final release.
             </p>
           </motion.div>
 
@@ -422,7 +422,7 @@ const Projects = () => {
             style={{ textAlign: 'center', marginBottom: '50px' }}
           >
             <h2 style={{ fontSize: '3rem', marginBottom: '15px', fontWeight: '800' }}>
-              <span style={{ color: 'var(--primary)' }}>END-TO-END</span> SOLUTIONS
+              <span style={{ color: 'var(--primary)' }}>Published </span> Apps
             </h2>
             <p style={{ 
               fontSize: '1.1rem', 
@@ -431,7 +431,7 @@ const Projects = () => {
               margin: '0 auto',
               lineHeight: '1.6'
             }}>
-              Aplikasi skala produksi yang dirancang, di-develop, hingga dipublikasikan secara independen. Bukti nyata arsitektur <i>Full-Stack</i> dari hulu ke hilir.
+              Fully realized applications built from the ground up—personally handling everything from the initial UI/UX to backend engineering and store publication.
             </p>
           </motion.div>
 

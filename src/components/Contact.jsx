@@ -161,7 +161,7 @@ const Contact = () => {
             fontFamily: "'Orbitron', 'Arial', sans-serif",
             letterSpacing: '1px'
           }}>
-            Mari berkolaborasi menciptakan sesuatu yang luar biasa
+            Let’s work together to build something remarkable.
           </p>
         </motion.div>
 

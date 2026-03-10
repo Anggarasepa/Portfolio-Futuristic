@@ -82,7 +82,7 @@ const Hero = () => {
               fontWeight: '700'
             }}
           >
-            Membawa masa depan kedalam setiap baris kode
+            Bringing the future into every line of code.
           </motion.p>
           
           {/* Tombol Lihat Projek */}
@@ -105,7 +105,7 @@ const Hero = () => {
                 cursor: 'pointer'
               }}
             >
-              Lihat Projek <FaArrowRight />
+              My Project <FaArrowRight />
             </button>
           </motion.div>
           
@@ -124,7 +124,7 @@ const Hero = () => {
               color: 'rgba(255, 255, 255, 0.5)',
               fontSize: '0.9rem'
             }}>
-              <div>Scroll untuk menjelajahi</div>
+              <div>Scroll for more</div>
               <div style={{
                 width: '30px',
                 height: '50px',

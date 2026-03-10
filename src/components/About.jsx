@@ -29,7 +29,7 @@ const About = () => {
             margin: '0 auto',
             fontFamily: "'Orbitron', sans-serif"
           }}>
-            Mengenal lebih jauh tentang saya dalam pengembangan solusi digital
+            Discover more about my journey in architecting digital solutions.
           </p>
         </motion.div>
 
@@ -88,7 +88,7 @@ const About = () => {
                   filter: 'drop-shadow(0 0 8px var(--primary))' // Efek glow biar makin futuristik
                 }} />
 
-                <span>Saya <span style={{ color: 'var(--primary)' }}>Asep Anggara</span></span>
+                <span>I am <span style={{ color: 'var(--primary)' }}>Asep Anggara</span></span>
               
               </h3>
             <p style={{ 
@@ -97,7 +97,7 @@ const About = () => {
               color: 'rgba(255, 255, 255, 0.8)',
               marginBottom: '30px'
             }}>
-              Seorang pengembang yang berdedikasi untuk menciptakan ekosistem digital yang efisien dan memukau. Dengan keahlian di bidang <strong>Mobile Development (iOS & Android)</strong>, <strong>Web Engineering</strong>, hingga <strong>AI & Workflow Automation</strong>.
+              A <strong>Full-Stack Engineer</strong> and <strong>System Architect</strong> dedicated to architecting highly efficient and visually compelling digital ecosystems. Bringing end-to-end expertise across <strong>Mobile Development (iOS & Android)</strong>, <strong>Web Engineering</strong>, and <strong>AI & Workflow Automation</strong> to transform complex concepts into seamless production-grade applications.
             </p>
 
             {/* Stats Cards */}
