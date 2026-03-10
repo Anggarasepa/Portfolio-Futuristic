@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { FaRocket, FaCode, FaLightbulb, FaUserAstronaut } from 'react-icons/fa';
 
 const About = () => {
-  // Data statistik singkat untuk tampilan futuristik
   const stats = [
     { icon: <FaRocket />, label: "Innovation", value: "High-End" },
     { icon: <FaCode />, label: "Clean Code", value: "Standard" },
@@ -11,7 +10,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="about-section" style={{ padding: '100px 0', position: 'relative' }}>
+    <section id="about" className="about-section" style={{ padding: '100px 0', position: 'relative', zIndex: 1 }}>
       <div className="container">
         {/* Judul Section */}
         <motion.div
@@ -41,7 +40,7 @@ const About = () => {
           gap: '50px',
           alignItems: 'center'
         }}>
-          {/* Sisi Kiri: Foto Profil Besar */}
+          {/* Sisi Kiri: Foto Profil */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -53,7 +52,7 @@ const About = () => {
               width: '280px',
               height: '280px',
               margin: '0 auto',
-              borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%', // Bentuk organik futuristik
+              borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
               overflow: 'hidden',
               border: '4px solid var(--primary)',
               boxShadow: '0 0 30px rgba(0, 243, 255, 0.3)',
@@ -65,20 +64,9 @@ const About = () => {
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
-            {/* Dekorasi Ikon Melayang */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              style={{
-                position: 'absolute', top: '10%', right: '15%',
-                fontSize: '2rem', color: 'var(--primary)', filter: 'drop-shadow(0 0 10px var(--primary))'
-              }}
-            >
-              <FaUserAstronaut />
-            </motion.div>
           </motion.div>
 
-          {/* Sisi Kanan: Bio & Stats */}
+          {/* Sisi Kanan: Bio */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -92,10 +80,9 @@ const About = () => {
               fontSize: '1.1rem', 
               lineHeight: '1.8', 
               color: 'rgba(255, 255, 255, 0.8)',
-              marginBottom: '30px',
-              textAlign: 'justify'
+              marginBottom: '30px'
             }}>
-              Seorang pengembang yang berdedikasi untuk menciptakan ekosistem digital yang efisien dan memukau. Dengan keahlian di bidang <strong>Mobile Development (iOS & Android)</strong>, <strong>Web Engineering</strong>, hingga <strong>AI & Workflow Automation</strong>, saya fokus pada penggabungan fungsionalitas tingkat tinggi dengan estetika desain yang futuristik.
+              Seorang pengembang yang berdedikasi untuk menciptakan ekosistem digital yang efisien dan memukau. Dengan keahlian di bidang <strong>Mobile Development (iOS & Android)</strong>, <strong>Web Engineering</strong>, hingga <strong>AI & Workflow Automation</strong>.
             </p>
 
             {/* Stats Cards */}
@@ -105,18 +92,12 @@ const About = () => {
                   padding: '20px 10px',
                   borderRadius: '15px',
                   textAlign: 'center',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  background: 'rgba(255, 255, 255, 0.03)'
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}>
-                  <div style={{ fontSize: '1.5rem', color: 'var(--primary)', marginBottom: '10px' }}>
-                    {stat.icon}
-                  </div>
-                  <div style={{ fontSize: '0.7rem', opacity: 0.6, textTransform: 'uppercase' }}>
-                    {stat.label}
-                  </div>
-                  <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'white' }}>
-                    {stat.value}
-                  </div>
+                  <div style={{ fontSize: '1.5rem', color: 'var(--primary)', marginBottom: '5px' }}>{stat.icon}</div>
+                  <div style={{ fontSize: '0.7rem', opacity: 0.6 }}>{stat.label}</div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>{stat.value}</div>
                 </div>
               ))}
             </div>
