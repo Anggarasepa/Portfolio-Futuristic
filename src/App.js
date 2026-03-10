@@ -36,6 +36,7 @@ function App() {
       {/* Main Content */}
       <Header />
       <Hero />
+      <About />
       <Projects />
       <Contact />
       
