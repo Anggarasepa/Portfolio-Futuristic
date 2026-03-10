@@ -61,7 +61,7 @@ const Hero = () => {
             transition={{ delay: 0.5 }}
             style={{ marginBottom: '30px' }}
           >
-            <span className="glitch-text" data-text="INNOVATOR">INNOVATOR</span>
+            <span className="glitch-text" data-text="System Architect">SYSTEM ARCHITECT</span>
           </motion.h1>
           
           {/* PERUBAHAN DI SINI: Text tanpa box */}

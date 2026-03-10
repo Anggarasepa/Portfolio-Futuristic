@@ -16,7 +16,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+  /* Gradasi Midnight Blue Futuristik (3 Titik) */
+  background: linear-gradient(135deg, #050A1F 0%, #0B162C 50%, #101B3B 100%);
   color: var(--light);
   font-family: 'Segoe UI', system-ui, sans-serif;
   overflow-x: hidden;
