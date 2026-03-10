@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+// 1. IMPORT IKON BARU DARI FA DAN SI
 import { 
   FaGithub, 
   FaExternalLinkAlt, 
@@ -9,20 +10,25 @@ import {
   FaRobot, 
   FaApple, 
   FaGamepad, 
-  FaChartLine 
+  FaChartLine,
+  FaJava // Ikon untuk Java
 } from 'react-icons/fa';
 import { 
   SiKotlin, 
   SiFirebase, 
   SiAndroid, 
   SiGumroad, 
-  SiSwift 
+  SiSwift,
+  SiDart,      // Ikon untuk Dart
+  SiFlutter,   // Ikon untuk Flutter
+  SiXcode,     // Ikon untuk Xcode
+  SiAndroidstudio // Ikon untuk Android Studio
 } from 'react-icons/si';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
 
-  // 1. DATA PROYEK (Ditambah Game Dev & Bot Trading)
+  // 1. DATA PROYEK (Tetap sama)
   const projects = [
     {
       id: 1,
@@ -51,7 +57,7 @@ const Projects = () => {
       tags: ["Python", "API", "Fintech"],
       icon: <FaChartLine />,
       gradient: "linear-gradient(135deg, #11998e, #38ef7d)",
-      link: "#", // Silakan isi link GitHub bot trading jika ada
+      link: "#",
       linkType: "github"
     },
     {
@@ -61,7 +67,7 @@ const Projects = () => {
       tags: ["Unity", "C#", "3D Render"],
       icon: <FaGamepad />,
       gradient: "linear-gradient(135deg, #8E2DE2, #4A00E0)",
-      link: "#", // Silakan isi link GitHub game dev jika ada
+      link: "#",
       linkType: "github"
     },
     {
@@ -86,19 +92,24 @@ const Projects = () => {
     }
   ];
 
-  // 2. DATA SKILLS (Ditambah Swift & iOS)
+  // 2. DATA SKILLS (Ditambah Java, Dart, Flutter, Xcode, Android Studio)
   const techStack = [
     { icon: <FaReact />, name: "React", color: "#61DAFB" },
     { icon: <FaNodeJs />, name: "Node.js", color: "#339933" },
     { icon: <FaPython />, name: "Python", color: "#3776AB" },
+    { icon: <FaJava />, name: "Java", color: "#007396" }, // Tambah Java
     { icon: <SiKotlin />, name: "Kotlin", color: "#7F52FF" },
     { icon: <SiSwift />, name: "Swift", color: "#F05138" },
+    { icon: <SiDart />, name: "Dart", color: "#0175C2" }, // Tambah Dart
+    { icon: <SiFlutter />, name: "Flutter", color: "#02569B" }, // Tambah Flutter
+    { icon: <SiXcode />, name: "Xcode", color: "#157EFB" }, // Tambah Xcode
+    { icon: <SiAndroidstudio />, name: "Android Studio", color: "#3DDC84" }, // Tambah Android Studio
     { icon: <FaApple />, name: "iOS", color: "#FFFFFF" },
     { icon: <SiFirebase />, name: "Firebase", color: "#FFCA28" },
     { icon: <SiAndroid />, name: "Android", color: "#3DDC84" }
   ];
 
-  // ========== FUNGSI NAVIGASI & LINK ==========
+  // ========== FUNGSI NAVIGASI & LINK ========== (Tetap sama)
 
   const scrollToProjectsGrid = () => {
     const projectsGrid = document.querySelector('.projects-grid');
