@@ -128,11 +128,12 @@ const Projects = () => {
 
   // ========== FUNGSI NAVIGASI & LINK ==========
 
-  const scrollToProjectsGrid = () => {
-    const projectsGrid = document.querySelector('.projects-grid');
-    if (projectsGrid) {
-      const headerHeight = 80;
-      const elementPosition = projectsGrid.getBoundingClientRect().top;
+const scrollToPublishedApps = () => {
+    // Menargetkan ID section Published Apps
+    const publishedSection = document.getElementById('end-to-end');
+    if (publishedSection) {
+      const headerHeight = 80; // Jarak aman untuk header/navbar
+      const elementPosition = publishedSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
@@ -267,7 +268,7 @@ const Projects = () => {
             style={{ textAlign: 'center', marginBottom: '80px' }}
           >
             <button 
-              onClick={scrollToProjectsGrid}
+              onClick={scrollToPublishedApps}
               className="btn btn-primary" 
               style={{ 
                 padding: '18px 50px',
