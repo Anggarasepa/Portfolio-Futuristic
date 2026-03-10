@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaPython, FaRobot } from 'react-icons/fa';
-import { SiKotlin, SiFirebase, SiAndroid, SiGumroad } from 'react-icons/si';
+import { 
+  FaGithub, 
+  FaExternalLinkAlt, 
+  FaReact, 
+  FaNodeJs, 
+  FaPython, 
+  FaRobot, 
+  FaApple, 
+  FaGamepad, 
+  FaChartLine 
+} from 'react-icons/fa';
+import { 
+  SiKotlin, 
+  SiFirebase, 
+  SiAndroid, 
+  SiGumroad, 
+  SiSwift 
+} from 'react-icons/si';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
 
-  // Data proyek dengan link GitHub yang bisa diisi
+  // 1. DATA PROYEK (Ditambah Game Dev & Bot Trading)
   const projects = [
     {
       id: 1,
       title: "Artificial Intelligent",
-      description: "Real-time analytics Market dengan visualisasi 3D dan AI predictions",
+      description: "Real-time analytics Market dengan visualisasi 3D dan AI predictions.",
       tags: ["Python", "Machine Learning", "AI"],
       icon: <FaPython />,
       gradient: "linear-gradient(135deg, #00f3ff, #7b00ff)",
@@ -21,17 +37,37 @@ const Projects = () => {
     {
       id: 2,
       title: "Mobile Application",
-      description: "Android application dengan Interactive visualization",
+      description: "Android application dengan Interactive visualization dan sinkronisasi Cloud.",
       tags: ["Kotlin", "Firebase", "Android"],
-      icon: <SiKotlin />,
+      icon: <SiAndroid />,
       gradient: "linear-gradient(135deg, #ff00c8, #ff5500)",
       link: "https://github.com/Anggarasepa/PoinNusamba.git",
       linkType: "github"
     },
     {
       id: 3,
+      title: "Bot Trading",
+      description: "Automated trading system dengan algoritma analisis teknikal presisi tinggi.",
+      tags: ["Python", "API", "Fintech"],
+      icon: <FaChartLine />,
+      gradient: "linear-gradient(135deg, #11998e, #38ef7d)",
+      link: "#", // Silakan isi link GitHub bot trading jika ada
+      linkType: "github"
+    },
+    {
+      id: 4,
+      title: "Game Development",
+      description: "Pengembangan pengalaman virtual interaktif dengan mekanik game modern.",
+      tags: ["Unity", "C#", "3D Render"],
+      icon: <FaGamepad />,
+      gradient: "linear-gradient(135deg, #8E2DE2, #4A00E0)",
+      link: "#", // Silakan isi link GitHub game dev jika ada
+      linkType: "github"
+    },
+    {
+      id: 5,
       title: "Web Development",
-      description: "Explorer untuk keindahan pengalaman interaksi pengguna",
+      description: "Explorer untuk keindahan pengalaman interaksi pengguna yang responsif.",
       tags: ["Node.Js", "React", "CSS", "Html"],
       icon: <FaReact />,
       gradient: "linear-gradient(135deg, #00ff88, #0088ff)",
@@ -39,9 +75,9 @@ const Projects = () => {
       linkType: "github"
     },
     {
-      id: 4,
+      id: 6,
       title: "Workflow Automation",
-      description: "Biarkan tugas rutin Anda diotomatisasi untuk efisiensi maksimal",
+      description: "Otomatisasi tugas rutin untuk efisiensi maksimal menggunakan sistem API.",
       tags: ["N8N", "JSON", "API", "AI"],
       icon: <FaRobot />,
       gradient: "linear-gradient(135deg, #FF6B35, #FFA500)",
@@ -50,61 +86,47 @@ const Projects = () => {
     }
   ];
 
+  // 2. DATA SKILLS (Ditambah Swift & iOS)
   const techStack = [
     { icon: <FaReact />, name: "React", color: "#61DAFB" },
     { icon: <FaNodeJs />, name: "Node.js", color: "#339933" },
     { icon: <FaPython />, name: "Python", color: "#3776AB" },
     { icon: <SiKotlin />, name: "Kotlin", color: "#7F52FF" },
+    { icon: <SiSwift />, name: "Swift", color: "#F05138" },
+    { icon: <FaApple />, name: "iOS", color: "#FFFFFF" },
     { icon: <SiFirebase />, name: "Firebase", color: "#FFCA28" },
     { icon: <SiAndroid />, name: "Android", color: "#3DDC84" }
   ];
 
-  // ========== FUNGSI BARU ==========
+  // ========== FUNGSI NAVIGASI & LINK ==========
 
-  // 1. Fungsi untuk tombol "View All Projects" - scroll ke projects grid
   const scrollToProjectsGrid = () => {
     const projectsGrid = document.querySelector('.projects-grid');
     if (projectsGrid) {
       const headerHeight = 80;
       const elementPosition = projectsGrid.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
-  // 2. Fungsi untuk tombol "Get in Touch" - scroll ke contact section
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       const headerHeight = 80;
       const elementPosition = contactSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
-  // 3. Fungsi untuk membuka link berdasarkan type
   const openLink = (project, e) => {
     e.preventDefault();
-    
     if (!project.link || project.link === '#') {
       alert(`${project.linkType === "gumroad" ? "Gumroad" : "GitHub"} link belum diatur.`);
       return;
     }
-    
-    if (project.linkType === "gumroad") {
-      window.open(project.link, '_blank', 'noopener,noreferrer');
-    } else {
-      window.open(project.link, '_blank', 'noopener,noreferrer');
-    }
+    window.open(project.link, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -121,7 +143,7 @@ const Projects = () => {
             viewport={{ once: true }}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>
+            <h2 style={{ fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800' }}>
               <span style={{ color: 'var(--primary)' }}>TECH</span> SKILLS
             </h2>
             <p style={{ 
@@ -129,58 +151,50 @@ const Projects = () => {
               opacity: 0.8, 
               maxWidth: '600px', 
               margin: '0 auto',
-              fontFamily: "'Orbitron', 'Arial', sans-serif",
-              letterSpacing: '1px',
-              fontWeight: '500'
+              fontFamily: "'Orbitron', sans-serif",
+              letterSpacing: '1px'
             }}>
-              Teknologi dan bahasa pemrograman yang saya kuasai
+              Teknologi dan bahasa pemrograman yang saya gunakan untuk membangun masa depan
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: '30px',
-              padding: '30px',
-              background: 'rgba(255, 255, 255, 0.03)',
-              borderRadius: '20px',
-              border: '1px solid rgba(255, 255, 255, 0.1)'
-            }}>
-              {techStack.map((tech, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '10px',
-                    padding: '20px',
-                    minWidth: '100px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    borderRadius: '15px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s'
-                  }}
-                >
-                  <div style={{ fontSize: '2.5rem', color: tech.color }}>
-                    {tech.icon}
-                  </div>
-                  <span style={{ fontSize: '0.9rem', fontWeight: '500' }}>
-                    {tech.name}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: '25px',
+            padding: '40px',
+            background: 'rgba(255, 255, 255, 0.03)',
+            borderRadius: '24px',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            {techStack.map((tech, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.1, rotate: 5, background: 'rgba(255, 255, 255, 0.08)' }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '25px',
+                  minWidth: '120px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '18px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                }}
+              >
+                <div style={{ fontSize: '3rem', color: tech.color }}>
+                  {tech.icon}
+                </div>
+                <span style={{ fontSize: '1rem', fontWeight: '600', letterSpacing: '0.5px' }}>
+                  {tech.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -196,7 +210,7 @@ const Projects = () => {
             viewport={{ once: true }}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>
+            <h2 style={{ fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800' }}>
               <span style={{ color: 'var(--primary)' }}>PRO</span>JECTS
             </h2>
             <p style={{ 
@@ -204,50 +218,46 @@ const Projects = () => {
               opacity: 0.8, 
               maxWidth: '600px', 
               margin: '0 auto',
-              fontFamily: "'Orbitron', 'Arial', sans-serif",
-              letterSpacing: '1px',
-              fontWeight: '500'
+              fontFamily: "'Orbitron', sans-serif"
             }}>
-              Karya inovatif yang menggabungkan teknologi terkini dengan desain futuristik
+              Eksplorasi solusi digital melalui berbagai platform dan disiplin ilmu
             </p>
           </motion.div>
 
+          {/* Button View All */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.3 }}
             viewport={{ once: true }}
-            style={{ 
-              textAlign: 'center', 
-              marginBottom: '70px',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '20px'
-            }}
+            style={{ textAlign: 'center', marginBottom: '80px' }}
           >
             <button 
               onClick={scrollToProjectsGrid}
               className="btn btn-primary" 
               style={{ 
-                padding: '15px 50px',
-                fontSize: '1.1rem',
+                padding: '18px 50px',
+                fontSize: '1.2rem',
+                borderRadius: '50px',
                 cursor: 'pointer',
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
-                gap: '10px'
+                gap: '12px',
+                boxShadow: '0 10px 20px rgba(0, 243, 255, 0.2)'
               }}
             >
-              View All Projects
+              Explore Portfolio
               <FaExternalLinkAlt style={{ fontSize: '0.9rem' }} />
             </button>
           </motion.div>
 
+          {/* Grid Projects */}
           <div 
             className="projects-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '30px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '35px',
               marginBottom: '60px'
             }}
           >
@@ -258,146 +268,108 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: -12 }}
                 onHoverStart={() => setHoveredProject(project.id)}
                 onHoverEnd={() => setHoveredProject(null)}
                 className="project-card glass"
                 style={{
-                  padding: '30px',
+                  padding: '35px',
                   position: 'relative',
                   overflow: 'hidden',
-                  minHeight: '400px',
+                  minHeight: '420px',
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                {/* Background Gradient */}
+                {/* Glow Background */}
                 <div style={{
                   position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
+                  top: 0, left: 0, width: '100%', height: '100%',
                   background: project.gradient,
-                  opacity: hoveredProject === project.id ? 0.1 : 0.05,
-                  transition: 'opacity 0.3s',
+                  opacity: hoveredProject === project.id ? 0.18 : 0.06,
+                  transition: 'opacity 0.4s ease',
                   zIndex: -1
                 }} />
 
-                {/* Project Icon */}
                 <motion.div
-                  animate={{ rotate: hoveredProject === project.id ? 360 : 0 }}
-                  transition={{ duration: 0.5 }}
-                  style={{
-                    fontSize: '3rem',
-                    marginBottom: '20px',
-                    color: 'var(--primary)'
+                  animate={{ 
+                    rotate: hoveredProject === project.id ? 360 : 0,
+                    scale: hoveredProject === project.id ? 1.2 : 1
                   }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                  style={{ fontSize: '3.5rem', marginBottom: '25px', color: 'var(--primary)' }}
                 >
                   {project.icon}
                 </motion.div>
 
-                {/* Project Content */}
                 <div>
-                  <h3 style={{
-                    fontSize: '1.8rem',
-                    marginBottom: '15px',
-                    color: 'white'
-                  }}>
+                  <h3 style={{ fontSize: '1.9rem', marginBottom: '15px', fontWeight: '700' }}>
                     {project.title}
                   </h3>
-                  <p style={{
-                    color: 'rgba(255, 255, 255, 0.7)',
-                    marginBottom: '20px',
-                    lineHeight: '1.6'
-                  }}>
+                  <p style={{ color: 'rgba(255, 255, 255, 0.75)', marginBottom: '25px', lineHeight: '1.7' }}>
                     {project.description}
                   </p>
 
-                  {/* Tags */}
-                  <div style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '10px',
-                    marginBottom: '30px'
-                  }}>
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        style={{
-                          padding: '5px 15px',
-                          background: 'rgba(255, 255, 255, 0.1)',
-                          borderRadius: '20px',
-                          fontSize: '0.8rem',
-                          border: '1px solid rgba(255, 255, 255, 0.2)'
-                        }}
-                      >
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '35px' }}>
+                    {project.tags.map((tag, i) => (
+                      <span key={i} style={{ 
+                        padding: '6px 16px', 
+                        background: 'rgba(255, 255, 255, 0.08)', 
+                        borderRadius: '30px', 
+                        fontSize: '0.85rem',
+                        border: '1px solid rgba(255, 255, 255, 0.15)'
+                      }}>
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Project Links */}
+                {/* Interaction Buttons */}
                 <motion.div
-                  animate={{ y: hoveredProject === project.id ? 0 : 20, opacity: hoveredProject === project.id ? 1 : 0 }}
-                  style={{
-                    display: 'flex',
-                    gap: '15px',
-                    justifyContent: 'space-between'
+                  animate={{ 
+                    y: hoveredProject === project.id ? 0 : 20, 
+                    opacity: hoveredProject === project.id ? 1 : 0 
                   }}
+                  style={{ display: 'flex', gap: '15px' }}
                 >
                   <button
                     onClick={(e) => openLink(project, e)}
                     className="btn"
                     style={{
-                      padding: '10px 20px',
-                      background: project.linkType === "gumroad" 
-                        ? 'linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.4))'
-                        : 'rgba(255, 255, 255, 0.1)',
-                      border: project.linkType === "gumroad" 
-                        ? '1px solid rgba(255, 107, 53, 0.5)' 
-                        : '1px solid rgba(255, 255, 255, 0.2)',
-                      borderRadius: '10px',
+                      padding: '12px',
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      borderRadius: '12px',
                       color: 'white',
+                      flex: 1,
+                      cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '10px',
-                      cursor: 'pointer',
-                      flex: 1,
                       justifyContent: 'center',
-                      transition: 'all 0.3s'
+                      gap: '8px',
+                      fontWeight: '600'
                     }}
                   >
-                    {project.linkType === "gumroad" ? (
-                      <>
-                        <SiGumroad style={{ fontSize: '1.2rem', color: '#FF6B35' }} />
-                        <span>Gumroad</span>
-                      </>
-                    ) : (
-                      <>
-                        <FaGithub />
-                        <span>GitHub</span>
-                      </>
-                    )}
+                    {project.linkType === "gumroad" ? <SiGumroad /> : <FaGithub />}
+                    {project.linkType === "gumroad" ? "Gumroad" : "GitHub"}
                   </button>
                   
                   <button
                     onClick={scrollToContact}
                     className="btn btn-primary"
                     style={{
-                      padding: '10px 20px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '10px',
-                      cursor: 'pointer',
+                      padding: '12px',
                       flex: 1,
-                      justifyContent: 'center',
-                      border: 'none'
+                      borderRadius: '12px',
+                      cursor: 'pointer',
+                      fontWeight: '600'
                     }}
                   >
-                    <span>Get in Touch</span>
+                    Contact Me
                   </button>
                 </motion.div>
               </motion.div>
