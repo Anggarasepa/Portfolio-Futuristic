@@ -101,285 +101,311 @@ const Projects = () => {
     }
     
     if (project.linkType === "gumroad") {
-      // Untuk Gumroad, buka di tab baru
       window.open(project.link, '_blank', 'noopener,noreferrer');
     } else {
-      // Untuk GitHub, buka di tab baru
       window.open(project.link, '_blank', 'noopener,noreferrer');
     }
   };
 
   return (
-    <section id="projects" className="projects-section" style={{ padding: '100px 0' }}>
-      <div className="container">
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '60px' }}
-        >
-          <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>
-            <span style={{ color: 'var(--primary)' }}>PRO</span>JECTS
-          </h2>
-          <p style={{ 
-            fontSize: '1.2rem', 
-            opacity: 0.8, 
-            maxWidth: '600px', 
-            margin: '0 auto',
-            fontFamily: "'Orbitron', 'Arial', sans-serif",
-            letterSpacing: '1px',
-            fontWeight: '500'
-          }}>
-            Karya inovatif yang menggabungkan teknologi terkini dengan desain futuristik
-          </p>
-        </motion.div>
-
-        {/* Tech Stack */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          style={{ marginBottom: '60px' }}
-        >
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: '30px',
-            padding: '30px',
-            background: 'rgba(255, 255, 255, 0.03)',
-            borderRadius: '20px',
-            border: '1px solid rgba(255, 255, 255, 0.1)'
-          }}>
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '10px',
-                  padding: '20px',
-                  minWidth: '100px',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  borderRadius: '15px',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s'
-                }}
-              >
-                <div style={{ fontSize: '2.5rem', color: tech.color }}>
-                  {tech.icon}
-                </div>
-                <span style={{ fontSize: '0.9rem', fontWeight: '500' }}>
-                  {tech.name}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* View All Projects Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          viewport={{ once: true }}
-          style={{ 
-            textAlign: 'center', 
-            marginBottom: '70px',
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '20px'
-          }}
-        >
-          <button 
-            onClick={scrollToProjectsGrid}
-            className="btn btn-primary" 
-            style={{ 
-              padding: '15px 50px',
-              fontSize: '1.1rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}
+    <>
+      {/* =========================================
+          BAGIAN 1: SKILLS & TECH STACK 
+          ========================================= */}
+      <section id="skills" className="skills-section" style={{ padding: '100px 0', background: 'rgba(255, 255, 255, 0.02)' }}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            View All Projects
-            <FaExternalLinkAlt style={{ fontSize: '0.9rem' }} />
-          </button>
-        </motion.div>
+            <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>
+              <span style={{ color: 'var(--primary)' }}>TECH</span> SKILLS
+            </h2>
+            <p style={{ 
+              fontSize: '1.2rem', 
+              opacity: 0.8, 
+              maxWidth: '600px', 
+              margin: '0 auto',
+              fontFamily: "'Orbitron', 'Arial', sans-serif",
+              letterSpacing: '1px',
+              fontWeight: '500'
+            }}>
+              Teknologi dan bahasa pemrograman yang saya kuasai
+            </p>
+          </motion.div>
 
-        {/* Projects Grid */}
-        <div 
-          className="projects-grid"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '30px',
-            marginBottom: '60px'
-          }}
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              onHoverStart={() => setHoveredProject(project.id)}
-              onHoverEnd={() => setHoveredProject(null)}
-              className="project-card glass"
-              style={{
-                padding: '30px',
-                position: 'relative',
-                overflow: 'hidden',
-                minHeight: '400px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}
-            >
-              {/* Background Gradient */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                background: project.gradient,
-                opacity: hoveredProject === project.id ? 0.1 : 0.05,
-                transition: 'opacity 0.3s',
-                zIndex: -1
-              }} />
-
-              {/* Project Icon */}
-              <motion.div
-                animate={{ rotate: hoveredProject === project.id ? 360 : 0 }}
-                transition={{ duration: 0.5 }}
-                style={{
-                  fontSize: '3rem',
-                  marginBottom: '20px',
-                  color: 'var(--primary)'
-                }}
-              >
-                {project.icon}
-              </motion.div>
-
-              {/* Project Content */}
-              <div>
-                <h3 style={{
-                  fontSize: '1.8rem',
-                  marginBottom: '15px',
-                  color: 'white'
-                }}>
-                  {project.title}
-                </h3>
-                <p style={{
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  marginBottom: '20px',
-                  lineHeight: '1.6'
-                }}>
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '10px',
-                  marginBottom: '30px'
-                }}>
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      style={{
-                        padding: '5px 15px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        borderRadius: '20px',
-                        fontSize: '0.8rem',
-                        border: '1px solid rgba(255, 255, 255, 0.2)'
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Project Links - KONDISIONAL BERDASARKAN LINK TYPE */}
-              <motion.div
-                animate={{ y: hoveredProject === project.id ? 0 : 20, opacity: hoveredProject === project.id ? 1 : 0 }}
-                style={{
-                  display: 'flex',
-                  gap: '15px',
-                  justifyContent: 'space-between'
-                }}
-              >
-                {/* Button berdasarkan link type */}
-                <button
-                  onClick={(e) => openLink(project, e)}
-                  className="btn"
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              gap: '30px',
+              padding: '30px',
+              background: 'rgba(255, 255, 255, 0.03)',
+              borderRadius: '20px',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}>
+              {techStack.map((tech, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
                   style={{
-                    padding: '10px 20px',
-                    background: project.linkType === "gumroad" 
-                      ? 'linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.4))'
-                      : 'rgba(255, 255, 255, 0.1)',
-                    border: project.linkType === "gumroad" 
-                      ? '1px solid rgba(255, 107, 53, 0.5)' 
-                      : '1px solid rgba(255, 255, 255, 0.2)',
-                    borderRadius: '10px',
-                    color: 'white',
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
                     gap: '10px',
+                    padding: '20px',
+                    minWidth: '100px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    borderRadius: '15px',
                     cursor: 'pointer',
-                    flex: 1,
-                    justifyContent: 'center',
                     transition: 'all 0.3s'
                   }}
                 >
-                  {project.linkType === "gumroad" ? (
-                    <>
-                      <SiGumroad style={{ fontSize: '1.2rem', color: '#FF6B35' }} />
-                      <span>Gumroad</span>
-                    </>
-                  ) : (
-                    <>
-                      <FaGithub />
-                      <span>GitHub</span>
-                    </>
-                  )}
-                </button>
-                
-                {/* Get in Touch Button (SAMA UNTUK SEMUA) */}
-                <button
-                  onClick={scrollToContact}
-                  className="btn btn-primary"
+                  <div style={{ fontSize: '2.5rem', color: tech.color }}>
+                    {tech.icon}
+                  </div>
+                  <span style={{ fontSize: '0.9rem', fontWeight: '500' }}>
+                    {tech.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* =========================================
+          BAGIAN 2: PROJECTS & PORTFOLIO 
+          ========================================= */}
+      <section id="projects" className="projects-section" style={{ padding: '100px 0' }}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '60px' }}
+          >
+            <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>
+              <span style={{ color: 'var(--primary)' }}>PRO</span>JECTS
+            </h2>
+            <p style={{ 
+              fontSize: '1.2rem', 
+              opacity: 0.8, 
+              maxWidth: '600px', 
+              margin: '0 auto',
+              fontFamily: "'Orbitron', 'Arial', sans-serif",
+              letterSpacing: '1px',
+              fontWeight: '500'
+            }}>
+              Karya inovatif yang menggabungkan teknologi terkini dengan desain futuristik
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            style={{ 
+              textAlign: 'center', 
+              marginBottom: '70px',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '20px'
+            }}
+          >
+            <button 
+              onClick={scrollToProjectsGrid}
+              className="btn btn-primary" 
+              style={{ 
+                padding: '15px 50px',
+                fontSize: '1.1rem',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px'
+              }}
+            >
+              View All Projects
+              <FaExternalLinkAlt style={{ fontSize: '0.9rem' }} />
+            </button>
+          </motion.div>
+
+          <div 
+            className="projects-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '30px',
+              marginBottom: '60px'
+            }}
+          >
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                onHoverStart={() => setHoveredProject(project.id)}
+                onHoverEnd={() => setHoveredProject(null)}
+                className="project-card glass"
+                style={{
+                  padding: '30px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  minHeight: '400px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
+                {/* Background Gradient */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  background: project.gradient,
+                  opacity: hoveredProject === project.id ? 0.1 : 0.05,
+                  transition: 'opacity 0.3s',
+                  zIndex: -1
+                }} />
+
+                {/* Project Icon */}
+                <motion.div
+                  animate={{ rotate: hoveredProject === project.id ? 360 : 0 }}
+                  transition={{ duration: 0.5 }}
                   style={{
-                    padding: '10px 20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    cursor: 'pointer',
-                    flex: 1,
-                    justifyContent: 'center',
-                    border: 'none'
+                    fontSize: '3rem',
+                    marginBottom: '20px',
+                    color: 'var(--primary)'
                   }}
                 >
-                  <span>Get in Touch</span>
-                </button>
+                  {project.icon}
+                </motion.div>
+
+                {/* Project Content */}
+                <div>
+                  <h3 style={{
+                    fontSize: '1.8rem',
+                    marginBottom: '15px',
+                    color: 'white'
+                  }}>
+                    {project.title}
+                  </h3>
+                  <p style={{
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    marginBottom: '20px',
+                    lineHeight: '1.6'
+                  }}>
+                    {project.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '10px',
+                    marginBottom: '30px'
+                  }}>
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        style={{
+                          padding: '5px 15px',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          borderRadius: '20px',
+                          fontSize: '0.8rem',
+                          border: '1px solid rgba(255, 255, 255, 0.2)'
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Project Links */}
+                <motion.div
+                  animate={{ y: hoveredProject === project.id ? 0 : 20, opacity: hoveredProject === project.id ? 1 : 0 }}
+                  style={{
+                    display: 'flex',
+                    gap: '15px',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <button
+                    onClick={(e) => openLink(project, e)}
+                    className="btn"
+                    style={{
+                      padding: '10px 20px',
+                      background: project.linkType === "gumroad" 
+                        ? 'linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.4))'
+                        : 'rgba(255, 255, 255, 0.1)',
+                      border: project.linkType === "gumroad" 
+                        ? '1px solid rgba(255, 107, 53, 0.5)' 
+                        : '1px solid rgba(255, 255, 255, 0.2)',
+                      borderRadius: '10px',
+                      color: 'white',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      cursor: 'pointer',
+                      flex: 1,
+                      justifyContent: 'center',
+                      transition: 'all 0.3s'
+                    }}
+                  >
+                    {project.linkType === "gumroad" ? (
+                      <>
+                        <SiGumroad style={{ fontSize: '1.2rem', color: '#FF6B35' }} />
+                        <span>Gumroad</span>
+                      </>
+                    ) : (
+                      <>
+                        <FaGithub />
+                        <span>GitHub</span>
+                      </>
+                    )}
+                  </button>
+                  
+                  <button
+                    onClick={scrollToContact}
+                    className="btn btn-primary"
+                    style={{
+                      padding: '10px 20px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      cursor: 'pointer',
+                      flex: 1,
+                      justifyContent: 'center',
+                      border: 'none'
+                    }}
+                  >
+                    <span>Get in Touch</span>
+                  </button>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
