@@ -80,7 +80,6 @@ const About = () => {
                 alignItems: 'center', 
                 gap: '15px' // Jarak antara nama dan ikon
               }}>
-                <span>Saya adalah <span style={{ color: 'var(--primary)' }}>Asep Anggara</span></span>
                 
                 {/* Ikon sekarang pindah ke sini */}
                 <FaUserAstronaut style={{ 
@@ -88,6 +87,9 @@ const About = () => {
                   fontSize: '1.8rem',
                   filter: 'drop-shadow(0 0 8px var(--primary))' // Efek glow biar makin futuristik
                 }} />
+
+                <span>Saya <span style={{ color: 'var(--primary)' }}>Asep Anggara</span></span>
+              
               </h3>
             <p style={{ 
               fontSize: '1.1rem', 
