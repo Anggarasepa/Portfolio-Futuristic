@@ -89,9 +89,24 @@ const Header = () => {
                 boxShadow: '0 0 15px var(--primary)'
               }}>
                 <img 
-                  src="/profile.png"
-                  alt="Asep Anggara"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%'  }}
+                  // Mas Asep tetap menggunakan foto asli/sendiri
+                  src="/profile.png" 
+                  alt="Asep Anggara Silhouette" 
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'cover', 
+                    objectPosition: 'center 15%',
+                    
+                    // === TAMBAHKAN JURUS FILTER DISINI ===
+                    
+                    // 1. Membuat foto jadi hitam legam (Siluet Baku)
+                    filter: 'brightness(0)', 
+                    
+                    // 2. Menambahkan efek neon/glow agar tidak terlalu gelap (Opsional tapi keren)
+                    // format: drop-shadow(x-offset y-offset blur-radius color)
+                    boxShadow: '0 0 20px rgba(0, 243, 255, 0.5)', // Neon glow di pinggir kotak foto
+                  }} 
                 />
               </div>
               

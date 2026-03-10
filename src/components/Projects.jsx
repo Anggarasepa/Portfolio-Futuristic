@@ -276,7 +276,7 @@ const Projects = () => {
                   padding: '35px',
                   position: 'relative',
                   overflow: 'hidden',
-                  minHeight: '420px',
+                  minHeight: '500px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',

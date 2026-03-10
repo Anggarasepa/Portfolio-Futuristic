@@ -62,7 +62,6 @@ const About = () => {
                 alt="Asep Anggara" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover',objectPosition: 'center 15%' }}
               />
-              <FaUserAstronaut style={{ position: 'absolute', top: '10px', right: '10px', color: 'var(--primary)', fontSize: '2rem' }} />
             </div>
           </motion.div>
 
@@ -73,9 +72,23 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 style={{ fontSize: '2rem', marginBottom: '20px', color: 'white' }}>
-              Saya <span style={{ color: 'var(--primary)' }}>Asep Anggara</span>
-            </h3>
+            <h3 style={{ 
+                fontSize: '2rem', 
+                marginBottom: '20px', 
+                color: 'white', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '15px' // Jarak antara nama dan ikon
+              }}>
+                <span>Saya adalah <span style={{ color: 'var(--primary)' }}>Asep Anggara</span></span>
+                
+                {/* Ikon sekarang pindah ke sini */}
+                <FaUserAstronaut style={{ 
+                  color: 'var(--primary)', 
+                  fontSize: '1.8rem',
+                  filter: 'drop-shadow(0 0 8px var(--primary))' // Efek glow biar makin futuristik
+                }} />
+              </h3>
             <p style={{ 
               fontSize: '1.1rem', 
               lineHeight: '1.8', 
