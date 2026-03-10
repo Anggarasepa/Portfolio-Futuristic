@@ -89,16 +89,18 @@ const Header = () => {
                 boxShadow: '0 0 15px var(--primary)'
               }}>
                 <img 
-                  // Mas Asep tetap menggunakan foto asli/sendiri
                   src="/profile.png" 
-                  alt="Asep Anggara Silhouette" 
+                  alt="Asep Anggara" 
                   style={{ 
-                        width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%',
-                        
-                        // Ubah jadi hitam, lalu balik warnanya (invert) jadi putih
-                        filter: 'brightness(0) invert(1)', 
-                        boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)' // Glow putih lembut
-                      }} 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'cover', 
+                    objectPosition: 'center 15%',
+                    
+                    // PERBAIKAN: Hapus brightness & invert agar wajah terlihat.
+                    // Gunakan drop-shadow untuk efek glow futuristik yang menyatu dengan background Midnight Blue
+                    filter: 'drop-shadow(0 0 20px rgba(0, 243, 255, 0.3))' 
+                  }} 
                 />
               </div>
               
