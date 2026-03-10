@@ -29,7 +29,7 @@ const About = () => {
             margin: '0 auto',
             fontFamily: "'Orbitron', sans-serif"
           }}>
-            Mengenal lebih jauh sosok di balik layar pengembangan solusi digital
+            Mengenal lebih jauh tentang saya dalam pengembangan solusi digital
           </p>
         </motion.div>
 
@@ -74,7 +74,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h3 style={{ fontSize: '2rem', marginBottom: '20px', color: 'white' }}>
-              Saya adalah <span style={{ color: 'var(--primary)' }}>Asep Anggara</span>
+              Saya <span style={{ color: 'var(--primary)' }}>Asep Anggara</span>
             </h3>
             <p style={{ 
               fontSize: '1.1rem', 
