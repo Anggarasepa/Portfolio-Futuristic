@@ -60,7 +60,7 @@ const About = () => {
               <img 
                 src="/profile.png" 
                 alt="Asep Anggara" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover',objectPosition: 'center 15%' }}
               />
               <FaUserAstronaut style={{ position: 'absolute', top: '10px', right: '10px', color: 'var(--primary)', fontSize: '2rem' }} />
             </div>

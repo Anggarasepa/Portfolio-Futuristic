@@ -91,7 +91,7 @@ const Header = () => {
                 <img 
                   src="/profile.png"
                   alt="Asep Anggara"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%'  }}
                 />
               </div>
               
