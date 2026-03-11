@@ -661,3 +661,21 @@ h2::after {
     padding: 100px 0;
   }
 }
+
+/* Sembunyikan tombol menu (hamburger) saat di Desktop */
+.mobile-toggle-btn {
+  display: none !important;
+}
+
+/* Aturan untuk Layar HP/Tablet (di bawah 768px) */
+@media screen and (max-width: 768px) {
+  /* Sembunyikan deretan menu panjang saat di HP */
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  /* Munculkan tombol menu (hamburger) saat di HP */
+  .mobile-toggle-btn {
+    display: flex !important;
+  }
+}

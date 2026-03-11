@@ -159,6 +159,7 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <motion.div
+            className="mobile-toggle-btn"
             whileHover={{ rotate: 180 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
