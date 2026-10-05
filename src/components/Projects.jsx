@@ -10,7 +10,6 @@ import {
   FaApple,
   FaGamepad,
   FaChartLine,
-  FaJavaScript,
   FaHtml5,
   FaJava,
   FaCss3
@@ -24,6 +23,7 @@ import {
   SiDart,
   SiFlutter,
   SiXcode,
+  SiJavascript,
   SiAndroidstudio
 } from 'react-icons/si';
 
@@ -104,7 +104,7 @@ const Projects = () => {
     { icon: <FaNodeJs />, name: "Node.js", color: "#339933" },
     { icon: <FaPython />, name: "Python", color: "#3776AB" },
     { icon: <FaJava />, name: "Java", color: "#007396" },
-    { icon: <FaJavaScript />, name: "JavaScript", color: "#157EFB" },
+    { icon: <SiJavascript />, name: "JavaScript", color: "#F7DF1E" },
     { icon: <FaCss3 />, name: "CSS", color: "#02569B" },
     { icon: <FaHtml5 />, name: "HTML", color: "#339933" },
     { icon: <SiKotlin />, name: "Kotlin", color: "#7F52FF" },
