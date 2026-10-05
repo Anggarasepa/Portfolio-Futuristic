@@ -97,7 +97,7 @@ const Contact = () => {
     {
       icon: <FaPhone />,
       title: "Phone",
-      info: "+62 857 8118 9228",
+      info: "+62812 2284 2288",
       color: "#7b00ff",
       link: "https://wa.me/6281222842288"
     },
@@ -106,7 +106,7 @@ const Contact = () => {
       title: "Location",
       info: "Garut, Indonesia",
       color: "#ff00c8",
-      link: "https://www.google.com/maps/place/Bandung,+Kota+Bandung,+Jawa+Barat" // Link Google Maps
+      link: "https://www.google.com/maps/place/Garut,+Kec.+Garut+Kota,+Kabupaten+Garut,+Jawa+Barat" // Link Google Maps
     },
     {
       icon: <SiDiscord />,

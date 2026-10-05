@@ -46,7 +46,7 @@ const Hero = () => {
         >
           <div className="scan-line"></div>
 
-          {/* Badge AI-MOBILE-WEB DEVELOPER */}
+          {/* Badge AI-MOBILE-WEB-APPS-AUTOMATION-CYBER SECURITY */}
           <motion.div variants={itemVariants} style={{ marginBottom: '40px' }}>
             <div style={{
               display: 'inline-block', // Diperbaiki dari '-'
@@ -62,7 +62,7 @@ const Hero = () => {
                 fontWeight: '500',
                 fontFamily: "'Orbitron', sans-serif"
               }}>
-                AI • MOBILE • WEB DEVELOPER
+                AI • MOBILE • WEB • APPS • AUTOMATION • CYBER SECURITY
               </span>
             </div>
           </motion.div>
