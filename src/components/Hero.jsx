@@ -7,7 +7,7 @@ const Hero = () => {
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
-      projectsSection.scrollIntoView({ 
+      projectsSection.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -25,7 +25,7 @@ const Hero = () => {
           style={{ textAlign: 'center' }}
         >
           <div className="scan-line"></div>
-          
+
           {/* Badge AI-MOBILE-WEB DEVELOPER */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -53,7 +53,7 @@ const Hero = () => {
               </span>
             </div>
           </motion.div>
-          
+
           {/* Judul Utama */}
           <motion.h1
             initial={{ opacity: 0 }}
@@ -61,9 +61,9 @@ const Hero = () => {
             transition={{ delay: 0.5 }}
             style={{ marginBottom: '30px' }}
           >
-            <span className="glitch-text" data-text="SYSTEM ARCHITECT">SYSTEM ARCHITECT</span>
+            <span className="glitch-text" data-text="Software Engineer">Software Engineer</span>
           </motion.h1>
-          
+
           {/* PERUBAHAN DI SINI: Text tanpa box */}
           <motion.p
             initial={{ opacity: 0 }}
@@ -84,7 +84,7 @@ const Hero = () => {
           >
             Bringing the future into every line of code.
           </motion.p>
-          
+
           {/* Tombol Lihat Projek */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -92,9 +92,9 @@ const Hero = () => {
             transition={{ delay: 1 }}
             style={{ marginBottom: '80px' }}
           >
-            <button 
+            <button
               onClick={scrollToProjects}
-              className="btn btn-primary hover-3d" 
+              className="btn btn-primary hover-3d"
               style={{
                 padding: '18px 45px',
                 fontSize: '1.2rem',
@@ -108,7 +108,7 @@ const Hero = () => {
               My Project <FaArrowRight />
             </button>
           </motion.div>
-          
+
           {/* Scroll Indicator */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
@@ -116,7 +116,7 @@ const Hero = () => {
             onClick={scrollToProjects}
             style={{ cursor: 'pointer' }}
           >
-            <div style={{ 
+            <div style={{
               display: 'inline-flex',
               flexDirection: 'column',
               alignItems: 'center',
