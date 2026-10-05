@@ -12,7 +12,6 @@ import {
   FaChartLine,
   FaJavaScript,
   FaHtml5,
-  FaCss3,
   FaJava,
   FaCss3
 } from 'react-icons/fa';
