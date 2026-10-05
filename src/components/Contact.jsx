@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FaPaperPlane, 
-  FaEnvelope, 
-  FaPhone, 
+import {
+  FaPaperPlane,
+  FaEnvelope,
+  FaPhone,
   FaMapMarkerAlt,
   FaGithub
 } from 'react-icons/fa';
@@ -31,39 +31,39 @@ const Contact = () => {
   // ========== FUNGSI UNTUK MENGIRIM EMAIL ==========
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validasi form
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       setFormError('Please fill in all fields');
       return;
     }
-    
+
     // Validasi email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setFormError('Please enter a valid email address');
       return;
     }
-    
+
     setIsSubmitting(true);
     setFormError('');
-    
+
     try {
       // === OPSI 2: Menggunakan mailto link (Simple) ===
       sendEmailWithMailTo(formData);
-      
+
       // Simulasi delay untuk UX
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       setIsSubmitting(false);
       setIsSent(true);
-      
+
       // Reset form setelah 5 detik
       setTimeout(() => {
         setIsSent(false);
         setFormData({ name: '', email: '', subject: '', message: '' });
       }, 5000);
-      
+
     } catch (error) {
       console.error('Error sending email:', error);
       setFormError('Failed to send message. Please try again.');
@@ -78,9 +78,9 @@ const Contact = () => {
     const body = encodeURIComponent(
       `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
     );
-    
+
     const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    
+
     // Buka default email client
     window.location.href = mailtoLink;
   };
@@ -99,12 +99,12 @@ const Contact = () => {
       title: "Phone",
       info: "+62 857 8118 9228",
       color: "#7b00ff",
-      link: "https://wa.me/6285781189228"
+      link: "https://wa.me/6281222842288"
     },
     {
       icon: <FaMapMarkerAlt />,
       title: "Location",
-      info: "Bandung, Indonesia",
+      info: "Garut, Indonesia",
       color: "#ff00c8",
       link: "https://www.google.com/maps/place/Bandung,+Kota+Bandung,+Jawa+Barat" // Link Google Maps
     },
@@ -120,20 +120,20 @@ const Contact = () => {
   // ========== SOCIAL MEDIA LINKS ==========
   // Hanya GitHub, Upwork, Gumroad
   const socialLinks = [
-    { 
-      icon: <FaGithub />, 
+    {
+      icon: <FaGithub />,
       link: "https://github.com/Anggarasepa",
       label: "GitHub",
       color: "#333"
     },
-    { 
-      icon: <SiUpwork />, 
+    {
+      icon: <SiUpwork />,
       link: "https://www.upwork.com/freelancers/~01641a3c8f1e6a9a4f?mp_source=share", // GANTI DENGAN LINK UPWORK ANDA
       label: "Upwork",
       color: "#14A800"
     },
-    { 
-      icon: <SiGumroad />, 
+    {
+      icon: <SiGumroad />,
       link: "https://anggarasepa.gumroad.com/", // GANTI DENGAN LINK GUMROAD ANDA
       label: "Gumroad",
       color: "#36A9AE"
@@ -153,10 +153,10 @@ const Contact = () => {
           <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>
             GET IN <span style={{ color: 'var(--primary)' }}>TOUCH</span>
           </h2>
-          <p style={{ 
-            fontSize: '1.2rem', 
-            opacity: 0.8, 
-            maxWidth: '600px', 
+          <p style={{
+            fontSize: '1.2rem',
+            opacity: 0.8,
+            maxWidth: '600px',
             margin: '0 auto',
             fontFamily: "'Orbitron', 'Arial', sans-serif",
             letterSpacing: '1px'
@@ -181,7 +181,7 @@ const Contact = () => {
               <h3 style={{ fontSize: '2rem', marginBottom: '30px', color: 'var(--light)' }}>
                 Contact <span style={{ color: 'var(--primary)' }}>Info</span>
               </h3>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
                 {contactInfo.map((item, index) => (
                   <motion.div
@@ -221,22 +221,22 @@ const Contact = () => {
                       {item.icon}
                     </div>
                     <div>
-                      <div style={{ 
-                        fontSize: '0.9rem', 
+                      <div style={{
+                        fontSize: '0.9rem',
                         color: 'rgba(255, 255, 255, 0.6)',
                         marginBottom: '5px'
                       }}>
                         {item.title}
                       </div>
-                      <div style={{ 
-                        fontSize: '1.1rem', 
+                      <div style={{
+                        fontSize: '1.1rem',
                         fontWeight: '500',
                         color: item.link ? 'var(--primary)' : 'white'
                       }}>
                         {item.info}
                         {item.link && (
-                          <span style={{ 
-                            marginLeft: '10px', 
+                          <span style={{
+                            marginLeft: '10px',
                             fontSize: '0.8rem',
                             opacity: 0.7
                           }}>
@@ -255,8 +255,8 @@ const Contact = () => {
               <h4 style={{ fontSize: '1.5rem', marginBottom: '20px', color: 'var(--light)' }}>
                 Connect With Me
               </h4>
-              <div style={{ 
-                display: 'flex', 
+              <div style={{
+                display: 'flex',
                 gap: '15px',
                 flexWrap: 'wrap'
               }}>
@@ -308,11 +308,11 @@ const Contact = () => {
                   </motion.a>
                 ))}
               </div>
-              
+
               {/* Tambah lebih banyak sosial media jika perlu */}
               <div style={{ marginTop: '25px' }}>
-                <p style={{ 
-                  fontSize: '0.9rem', 
+                <p style={{
+                  fontSize: '0.9rem',
                   color: 'rgba(255, 255, 255, 0.6)',
                   marginBottom: '10px'
                 }}>
@@ -371,7 +371,7 @@ const Contact = () => {
                     />
                     <label className="input-label">Your Name *</label>
                   </div>
-                  
+
                   <div className="input-group">
                     <input
                       type="email"
