@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FaGithub, 
-  FaExternalLinkAlt, 
-  FaReact, 
-  FaNodeJs, 
-  FaPython, 
-  FaRobot, 
-  FaApple, 
-  FaGamepad, 
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaRobot,
+  FaApple,
+  FaGamepad,
   FaChartLine,
-  FaJava 
+  FaJavaScript,
+  FaHtml5,
+  FaCss3,
+  FaJava,
+  FaCss3
 } from 'react-icons/fa';
-import { 
-  SiKotlin, 
-  SiFirebase, 
-  SiAndroid, 
-  SiGumroad, 
+import {
+  SiKotlin,
+  SiFirebase,
+  SiAndroid,
+  SiGumroad,
   SiSwift,
-  SiDart,      
-  SiFlutter,   
-  SiXcode,     
-  SiAndroidstudio 
+  SiDart,
+  SiFlutter,
+  SiXcode,
+  SiAndroidstudio
 } from 'react-icons/si';
 
 const Projects = () => {
@@ -100,13 +104,16 @@ const Projects = () => {
     { icon: <FaReact />, name: "React", color: "#61DAFB" },
     { icon: <FaNodeJs />, name: "Node.js", color: "#339933" },
     { icon: <FaPython />, name: "Python", color: "#3776AB" },
-    { icon: <FaJava />, name: "Java", color: "#007396" }, 
+    { icon: <FaJava />, name: "Java", color: "#007396" },
+    { icon: <FaJavaScript />, name: "JavaScript", color: "#157EFB" },
+    { icon: <FaCss3 />, name: "CSS", color: "#02569B" },
+    { icon: <FaHtml5 />, name: "HTML", color: "#339933" },
     { icon: <SiKotlin />, name: "Kotlin", color: "#7F52FF" },
     { icon: <SiSwift />, name: "Swift", color: "#F05138" },
-    { icon: <SiDart />, name: "Dart", color: "#0175C2" }, 
-    { icon: <SiFlutter />, name: "Flutter", color: "#02569B" }, 
-    { icon: <SiXcode />, name: "Xcode", color: "#157EFB" }, 
-    { icon: <SiAndroidstudio />, name: "Android Studio", color: "#3DDC84" }, 
+    { icon: <SiDart />, name: "Dart", color: "#0175C2" },
+    { icon: <SiFlutter />, name: "Flutter", color: "#02569B" },
+    { icon: <SiXcode />, name: "Xcode", color: "#157EFB" },
+    { icon: <SiAndroidstudio />, name: "Android Studio", color: "#3DDC84" },
     { icon: <FaApple />, name: "iOS", color: "#FFFFFF" },
     { icon: <SiFirebase />, name: "Firebase", color: "#FFCA28" },
     { icon: <SiAndroid />, name: "Android", color: "#3DDC84" }
@@ -168,7 +175,7 @@ const scrollToPublishedApps = () => {
   return (
     <>
       {/* =========================================
-          BAGIAN 1: SKILLS & TECH STACK 
+          BAGIAN 1: SKILLS & TECH STACK
           ========================================= */}
       <section id="skills" className="skills-section" style={{ padding: '100px 0', background: 'rgba(255, 255, 255, 0.02)' }}>
         <div className="container">
@@ -182,10 +189,10 @@ const scrollToPublishedApps = () => {
             <h2 style={{ fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800' }}>
               <span style={{ color: 'var(--primary)' }}>TECH</span> SKILLS
             </h2>
-            <p style={{ 
-              fontSize: '1.2rem', 
-              opacity: 0.8, 
-              maxWidth: '600px', 
+            <p style={{
+              fontSize: '1.2rem',
+              opacity: 0.8,
+              maxWidth: '600px',
               margin: '0 auto',
               fontFamily: "'Orbitron', sans-serif",
               letterSpacing: '1px'
@@ -235,7 +242,7 @@ const scrollToPublishedApps = () => {
       </section>
 
       {/* =========================================
-          BAGIAN 2: PROJECTS & PORTFOLIO 
+          BAGIAN 2: PROJECTS & PORTFOLIO
           ========================================= */}
       <section id="projects" className="projects-section" style={{ padding: '100px 0' }}>
         <div className="container">
@@ -249,10 +256,10 @@ const scrollToPublishedApps = () => {
             <h2 style={{ fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800' }}>
               <span style={{ color: 'var(--primary)' }}>PRO</span>JECTS
             </h2>
-            <p style={{ 
-              fontSize: '1.2rem', 
-              opacity: 0.8, 
-              maxWidth: '600px', 
+            <p style={{
+              fontSize: '1.2rem',
+              opacity: 0.8,
+              maxWidth: '600px',
               margin: '0 auto',
               fontFamily: "'Orbitron', sans-serif"
             }}>
@@ -267,10 +274,10 @@ const scrollToPublishedApps = () => {
             viewport={{ once: true }}
             style={{ textAlign: 'center', marginBottom: '80px' }}
           >
-            <button 
+            <button
               onClick={scrollToPublishedApps}
-              className="btn btn-primary" 
-              style={{ 
+              className="btn btn-primary"
+              style={{
                 padding: '18px 50px',
                 fontSize: '1.2rem',
                 borderRadius: '50px',
@@ -286,7 +293,7 @@ const scrollToPublishedApps = () => {
             </button>
           </motion.div>
 
-          <div 
+          <div
             className="projects-grid"
             style={{
               display: 'grid',
@@ -328,7 +335,7 @@ const scrollToPublishedApps = () => {
                 }} />
 
                 <motion.div
-                  animate={{ 
+                  animate={{
                     rotate: hoveredProject === project.id ? 360 : 0,
                     scale: hoveredProject === project.id ? 1.2 : 1
                   }}
@@ -348,10 +355,10 @@ const scrollToPublishedApps = () => {
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '35px' }}>
                     {project.tags.map((tag, i) => (
-                      <span key={i} style={{ 
-                        padding: '6px 16px', 
-                        background: 'rgba(255, 255, 255, 0.08)', 
-                        borderRadius: '30px', 
+                      <span key={i} style={{
+                        padding: '6px 16px',
+                        background: 'rgba(255, 255, 255, 0.08)',
+                        borderRadius: '30px',
                         fontSize: '0.85rem',
                         border: '1px solid rgba(255, 255, 255, 0.15)'
                       }}>
@@ -362,9 +369,9 @@ const scrollToPublishedApps = () => {
                 </div>
 
                 <motion.div
-                  animate={{ 
-                    y: hoveredProject === project.id ? 0 : 20, 
-                    opacity: hoveredProject === project.id ? 1 : 0 
+                  animate={{
+                    y: hoveredProject === project.id ? 0 : 20,
+                    opacity: hoveredProject === project.id ? 1 : 0
                   }}
                   style={{ display: 'flex', gap: '15px' }}
                 >
@@ -389,7 +396,7 @@ const scrollToPublishedApps = () => {
                     {project.linkType === "gumroad" ? <SiGumroad /> : <FaGithub />}
                     {project.linkType === "gumroad" ? "Gumroad" : "GitHub"}
                   </button>
-                  
+
                   <button
                     onClick={scrollToContact}
                     className="btn btn-primary"
@@ -425,10 +432,10 @@ const scrollToPublishedApps = () => {
             <h2 style={{ fontSize: '3rem', marginBottom: '15px', fontWeight: '800' }}>
               <span style={{ color: 'var(--primary)' }}>Published </span> Apps
             </h2>
-            <p style={{ 
-              fontSize: '1.1rem', 
-              opacity: 0.8, 
-              maxWidth: '700px', 
+            <p style={{
+              fontSize: '1.1rem',
+              opacity: 0.8,
+              maxWidth: '700px',
               margin: '0 auto',
               lineHeight: '1.6'
             }}>
@@ -486,16 +493,16 @@ const scrollToPublishedApps = () => {
                   boxShadow: '0 8px 16px rgba(0,0,0,0.4)',
                   border: '1px solid rgba(255,255,255,0.1)'
                 }}>
-                  <img 
-                    src={app.tempIcon} 
-                    alt={app.title} 
+                  <img
+                    src={app.tempIcon}
+                    alt={app.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
 
-                <h3 style={{ 
-                  fontSize: '1.2rem', 
-                  fontWeight: '700', 
+                <h3 style={{
+                  fontSize: '1.2rem',
+                  fontWeight: '700',
                   margin: 0,
                   textAlign: 'center',
                   color: '#FFFFFF'
